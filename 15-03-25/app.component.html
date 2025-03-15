@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    Hello world
+    <app-child-component></app-child-component>
+
+    <h1> Hi </h1>
+    <table border="1">
+      <ng-container *ngFor = "let student of Students">
+        <tr *ngIf="student.age>19" >
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.age}}</td>
+        <td><button (click)="delete(student.id)">delete</button></td>
+        <td><button (click)="toggle()">toggle</button></td>
+        <td>{{visible}}</td>
+    </tr>
+    
+  </ng-container>
+    </table>
+
+   
+
+</body>
+</html>
