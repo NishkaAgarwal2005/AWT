@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-COMMERCE WEBSITE</title>
+</head>
+<body>
+     <h1>E-COMMERCE</h1>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" #name placeholder="Enter name">
+
+      <label for="description"> Description</label>
+      <input type="text" #description placeholder="Enter description">
+
+      <label for="price">Price</label>
+      <input type="number" #price placeholder="Enter price">
+
+      <label for="category">Category</label>
+      <input type="text" #category placeholder="Enter category">
+
+      <label for="stock">Stock</label>
+      <input type="number" #stock placeholder="Enter stock quantity">
+      <button class="btn-info" (click)="addProduct(name,description,price,category,stock)">ADD PRODUCT</button> 
+
+    </form>
+      
+      <table *ngFor="let product of products">
+      <tr>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.price}}</td>
+      <td>
+        <button class="button" (click)="deleteProduct(product.id)">DELETE</button>
+        <button class="button" (click)="editProduct(product)">EDIT</button>
+      </td>
+    </tr>
+   </table>
+
+   <form *ngIf="selectedProduct">
+    <label for="name">Name:</label>
+    <input type="text" [(ngModel)]="selectedProduct.name" name="name" placeholder="Enter Name">
+
+    <label for="descrition">Description:</label>
+    <input type="text" [(ngModel)]="selectedProduct.description" name="name" placeholder="Enter Description">
+
+    <label for="price">Price:</label>
+    <input type="number" [(ngModel)]="selectedProduct.price" name="name" placeholder="Enter Price">
+
+    <label for="category">Category:</label>
+    <input type="text" [(ngModel)]="selectedProduct.category" name="name" placeholder="Enter Category">
+
+    <label for="stock">Stock:</label>
+    <input type="number" [(ngModel)]="selectedProduct.stock" name="name" placeholder="Enter Stock quantity">
+
+    <button class="btn-info" (click)="updateProduct()">UPDATE</button>
+   </form>
+
+    
+</body>
+</html>
